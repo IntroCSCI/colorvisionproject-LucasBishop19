@@ -1,8 +1,8 @@
-# !!!Replace with your unique project name!!!
+# '''BMP Completer'''
 
 ## Description
 
-!!!Replace with a description of what your program does!!!
+The user inputs a base color, then the program will generate a list in BMP of five more colors that are color-blind friendly
 
 ### v0.2 Updates
 
@@ -15,7 +15,7 @@
 
 ## Developer
 
-!!!Replace with your name!!!
+'''Lucas Bishop'''
 
 ## Example
 

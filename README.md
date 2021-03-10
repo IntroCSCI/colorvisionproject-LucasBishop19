@@ -1,4 +1,4 @@
-# '''BMP Completer'''
+# BMP Completer
 
 ## Description
 

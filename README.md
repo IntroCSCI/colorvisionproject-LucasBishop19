@@ -15,7 +15,7 @@ The user inputs a base color, then the program will generate a list in BMP of fi
 
 ## Developer
 
-'''Lucas Bishop'''
+Lucas Bishop
 
 ## Example
 

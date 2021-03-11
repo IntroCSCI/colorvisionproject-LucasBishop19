@@ -1,4 +1,4 @@
-# BMP Completer
+# CSS Completer
 
 ## Description
 
@@ -29,7 +29,12 @@ g++ --std=c++11 *.cpp -o cvp
 Here is an example of the program running:
 
 ```
-!!!Replace with an example of the program running with user interaction!!!
+Enter a name for the file
+color
+Enter a base color in rgb
+Red: 86
+Blue: 200
+Green: 200
 ```
 
 ## C++ Guide

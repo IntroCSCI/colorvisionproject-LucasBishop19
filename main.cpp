@@ -26,14 +26,23 @@ int main()
   do{
     cout<<"Red: ";
     cin>>r;
+    if(r<0 || r>255){
+      cout<<"Invalid value. Please re-enter red value: "<<endl;
+    }
   }while(!(r>=0 && r<=255));
   do{
     cout<<"Blue: ";
     cin>>b;
+    if(b<0 || b>255){
+      cout<<"Invalid value. Please re-enter blue value: "<<endl;
+    }
   }while(!(b>=0 && b<=255));
   do{
     cout<<"Green: ";
     cin>>g;
+    if(g<0 || g>255){
+      cout<<"Invalid value. Please re-enter green value: "<<endl;
+    }
   }while(!(g>=0 && g<=255));
   colors<<"#base {color: rgb("<<r<<", "<<b<<", "<<g<<");}";
 

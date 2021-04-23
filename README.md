@@ -71,7 +71,7 @@ Using the user's file name input, the code makes a new .css file. It then takes 
 
 ### Arrays/Vectors
 
-There are 3 vectors in the code containing the red, green, and blue integer values for the generated colors. This shorted the code greatly, because it used to have 18 separate integer value for the colors.
+There are 3 vectors in the code containing the red, green, and blue integer values for the generated colors. This shorted the code greatly, because it used to have 18 individual integer value for the colors.
 
 ### Functions
 

@@ -2,11 +2,11 @@
 
 ## Description
 
-The user inputs a base color, then the program will generate a list in BMP of five more colors that are color-blind friendly
+The user inputs a base color, then the program will generate a list in CSS of five more colors that are color-blind friendly
 
 ### v0.2 Updates
 
-*Coming soon*
+The generated colors now have garunteed uniqueness from eachother, and the base color. Vectors and functions have been implemented to streamline the code, make it easier to read, and shorten it.
 
 ### v1.0 Updates
 
@@ -29,12 +29,21 @@ g++ --std=c++11 *.cpp -o cvp
 Here is an example of the program running:
 
 ```
+(in console)
 Enter a name for the file
 color
 Enter a base color in rgb
 Red: 86
 Blue: 200
 Green: 200
+
+(in newly created css file)
+#base {color: rgb(86, 200, 200);}
+#c1 {color: rgb(163, 162, 151);}
+#c2 {color: rgb(85, 190, 83);}
+#c3 {color: rgb(241, 249, 252);}
+#c4 {color: rgb(121, 82, 107);}
+#c5 {color: rgb(20, 233, 19);}
 ```
 
 ## C++ Guide
@@ -62,11 +71,11 @@ Using the user's file name input, the code makes a new .css file. It then takes 
 
 ### Arrays/Vectors
 
-*Coming in version 0.2*
+There are 3 vectors in the code containing the red, green, and blue integer values for the generated colors. This shorted the code greatly, because it used to have 18 separate integer value for the colors.
 
 ### Functions
 
-*Coming in version 0.2*
+The code has 3 functions, the first returns a random color value (an iteger between 0 and 255). The second uses pass by reference to modify the vectors to contain the rgb values for 6 colors. The third uses pass by value and returns a true boolen value if the colors held in the vectors are unique.
 
 ### Classes
 

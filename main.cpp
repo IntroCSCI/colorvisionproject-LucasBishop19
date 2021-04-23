@@ -1,15 +1,19 @@
 //Author: Lucas Bishop
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include <cstdlib> // add the ability to use RNGs. I found it at https://www.bitdegree.org/learn/random-number-generator-cpp
 using namespace std;
+
+//Prototypes
+int rc();
+void makeVector(vector<int>&rList, vector<int>&gList, vector<int>&bList);
+bool test(vector<int>);
 
 string fileName;
 string input;
 int r,b,g;
-int r1=1,r2=2,r3=3,r4=4,r5=5;
-int g1=1,g2=2,g3=3,g4=4,g5=5;
-int b1=1,b2=2,b3=3,b4=4,b5=5;
+vector <int>rList, bList, gList;
 
 int main()
 {
@@ -44,49 +48,48 @@ int main()
       cout<<"Invalid value. Please re-enter green value: "<<endl;
     }
   }while(!(g>=0 && g<=255));
+
+  rList.push_back(r);
+  gList.push_back(g);
+  bList.push_back(b);
+
   colors<<"#base {color: rgb("<<r<<", "<<b<<", "<<g<<");}";
 
   //creates 5 new distinct colors (will make sure they are colorblind safe later)
   do{
-    r1 = (rand() % 255)+0;
-    r2 = (rand() % 255)+0;
-    r3 = (rand() % 255)+0;
-    r4 = (rand() % 255)+0;
-    r5 = (rand() % 255)+0;
+    makeVector(rList,gList,bList);
+  }while(test(rList)==false &&
+         test(gList)==false &&
+         test(bList)==false);
 
-    g1 = (rand() % 255)+0;
-    g2 = (rand() % 255)+0;
-    g3 = (rand() % 255)+0;
-    g4 = (rand() % 255)+0;
-    g5 = (rand() % 255)+0;
-
-    b1 = (rand() % 255)+0;
-    b2 = (rand() % 255)+0;
-    b3 = (rand() % 255)+0;
-    b4 = (rand() % 255)+0;
-    b5 = (rand() % 255)+0;
-  }while(
-    r == r1 && g == g1 && b == b1 &&
-    r == r2 && g == g2 && b == b2 &&
-    r == r3 && g == g3 && b == b3 &&
-    r == r4 && g == g4 && b == b4 &&
-    r == r5 && g == g5 && b == b5 &&
-    r1 == r2 && g1 == g2 && b1 == b2 &&
-    r1 == r3 && g1 == g3 && b1 == b3 &&
-    r1 == r4 && g1 == g4 && b1 == b4 &&
-    r1 == r5 && g1 == g5 && b1 == b5 &&
-    r2 == r3 && g2 == g3 && b2 == b3 &&
-    r2 == r4 && g2 == g4 && b2 == b4 &&
-    r2 == r5 && g2 == g5 && b2 == b5 &&
-    r3 == r4 && g3 == g4 && b3 == b4 &&
-    r3 == r5 && g3 == g5 && b3 == b5 &&
-    r4 == r5 && g4 == g5 && b4 == b5
-  );
   //adds colors to .css file
-  colors<<endl<<"#c1 {color: rgb("<<r1<<", "<<b1<<", "<<g1<<");}";
-  colors<<endl<<"#c2 {color: rgb("<<r2<<", "<<b2<<", "<<g2<<");}";
-  colors<<endl<<"#c3 {color: rgb("<<r3<<", "<<b3<<", "<<g3<<");}";
-  colors<<endl<<"#c4 {color: rgb("<<r4<<", "<<b4<<", "<<g4<<");}";
-  colors<<endl<<"#c5 {color: rgb("<<r5<<", "<<b5<<", "<<g5<<");}";
+  for(int i=1;i<6;i++){
+      colors<<endl<<"#c"<<i<<" {color: rgb("<<rList[i]<<", "<<bList[i]<<", "<<gList[i]<<");}";
+    }
   return 0;
+}
+//generates a random number between 0 and 255
+int rc(){
+  int num;
+  num=(rand() % 255);
+  return num;
+}
+//adds 5 colors to the vectors
+void makeVector(vector<int>&rList, vector<int>&gList, vector<int>&bList){
+  for(int i=0;i<5;i++){
+    rList.push_back(rc());
+    gList.push_back(rc());
+    bList.push_back(rc());
+  }
+}
+//checks if the values in the vector are distince from eachother 
+bool test(vector<int>l){
+  for(int i=0; i<l.size(); i++){
+    for(int c=0; c<l.size(); c++){
+      if(i!=c && l[i]>=l[c]-10 && l[i]<=l[c]+10){
+        return false;
+      }
+    }
+  }
+  return true;
 }

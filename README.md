@@ -10,7 +10,7 @@ The generated colors now have garunteed uniqueness from eachother, and the base 
 
 ### v1.0 Updates
 
-*Coming soon*
+The code now has a class called "Color" to make creating colors easier. The class also allows for identifying features of the colors can be attached, such as what other colors cause problems for the colorblind.
 
 
 ## Developer
@@ -30,53 +30,83 @@ Here is an example of the program running:
 
 ```
 (in console)
+ g++ -std=c++11 *.cpp -o cvp; ./cvp
 Enter a name for the file
-color
-Enter a base color in rgb
-Red: 86
-Blue: 200
-Green: 200
+MyPalette
+Choose a base color:
+(enter the number next to it)
+1) pink
+2) red
+3) maroon
+4) light orange
+5) orange
+6) brown
+7) light yellow
+8) yellow
+9) olive
+10) light blue
+11) blue
+12) navy blue
+13) violet
+14) purple
+15) eggplant
+16) black
+17) gray
+18) white
+19) lime
+20) green
+21) dark green
+3
+Your theme is: 
+maroon
+dark green
+olive
+eggplant
+yellow
+orange
+ 
 
 (in newly created css file)
-#base {color: rgb(86, 200, 200);}
-#c1 {color: rgb(163, 162, 151);}
-#c2 {color: rgb(85, 190, 83);}
-#c3 {color: rgb(241, 249, 252);}
-#c4 {color: rgb(121, 82, 107);}
-#c5 {color: rgb(20, 233, 19);}
+#c maroon {color: rgb(128, 0, 0);}
+#c dark green {color: rgb(0, 100, 0);}
+#c olive {color: rgb(140, 140, 0);}
+#c eggplant {color: rgb(128, 0, 128);}
+#c yellow {color: rgb(255, 255, 0);}
+#c orange {color: rgb(255, 128, 0);}
 ```
 
 ## C++ Guide
 
 ### Variables and Data Types
 
-I have used a string variable and int variables. The string is used for the name of the newly created .css file. The integers are used for red, green, and blue values in an RGB color code.
+I have used string and int variables. The string is used for the name of the newly created .css file. There are two integer values, one keeps track of the base color slected by the user, the other is attached to a random number generator.
 
 ### Console Input and Output
 
-!!!Replace with a summary and examples of how input and output have been used effectively and appropriately!!!
-The code propts the user for the name of a file, and creates a css file with that name. It then propts the user for the RGB values of a base color, uses those to create a line of css code, and adds it to the new file.
+The code propts the user for the name of a file, and creates a css file with that name. It then provides the user with a list of colors and asks the user to pick one as a base.
 
 ### Decisions
 
-If the user inputs an incorrect red, green, or blue value, the code will output a message saying: "Invalid value. Please re-enter (color) value: " and make them input a new value.
+The constructor for color has a series of if and else if satements that determine what colors would conflict with the constructed color.
 
 ### Iteration
 
-The code has 4 do-while loops at the moment, 1 for each red, green, and blue vaues that the user inputs. These repeat if the user inputs an invalid color value (less than zero, or greater than 255). The last loop makes sure the newly created colors are unique, by making sure none of the red, green, and blue values are the same. If they are the same, it will repeat and make new colors.
+The code has a while loop that repeates until the user inputs a valid number coresponding to a base color. Another while loop continues until the palette has 6 non-conflicting colors. It also has a few for loops to progress through the color and string vectors while copying, adding, or comparing values.
 
 ### File Input and Output
 
-Using the user's file name input, the code makes a new .css file. It then takes the base color, and the generated color values, creates lines of css code, and adds them to the new file.
+Using the user's file name input, the code makes a new .css file. It then takes the base color, and the five non-conflicting color values, creates lines of css code, and adds them to the new file.
 
 ### Arrays/Vectors
 
-There are 3 vectors in the code containing the red, green, and blue integer values for the generated colors. This shorted the code greatly, because it used to have 18 individual integer value for the colors.
+There are 3 vectors in the code, two are color vectors, and one is a string vector. One color vector contains the 21 preset colors, the other will accumulate color values for the user's palatte. The string vector holds all of the color names that conflict with the palette.
 
 ### Functions
 
-The code has 3 functions, the first returns a random color value (an iteger between 0 and 255). The second uses pass by reference to modify the vectors to contain the rgb values for 6 colors. The third uses pass by value and returns a true boolen value if the colors held in the vectors are unique.
+The color.h and color.cpp files have 7 pass by value functions. Two are constructors for the color struct, three of them return the color's r, g, and b integer values, one returns the name of the color, the last returns a vector containing all of the names of other colors it conflicts with.
+
+The main fuction has two pass by reference functions. The first takes the most recently added palette color and adds its clashing colors to the string vector. The second function takes a random preset color, and checks if it is in the string vector, if the color is not in the string, it adds it to the palatte, if the color is in the palatte the function does nothing. 
 
 ### Classes
 
-*Coming in version 1.0*
+The Color class has been added. A color holds integers for its r, g, and b values, a string of its name, and a vector containing any color would cause problems for colorblind poeple. The class has seven functions, five of wich return the beforementioned variables. The other functions are constructors. One has parameters for the r,g,b, and name variables, and it builds the clashing vector based on the name (the clash vector contains the color itself to prevent repeating the color in the palette). The other constructor has no parameters and defaultly sets the color equal to black with the name "void" and no clashing colors besides itself.

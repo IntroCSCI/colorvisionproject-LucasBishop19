@@ -29,7 +29,7 @@ g++ --std=c++11 *.cpp -o cvp
 Here is an example of the program running:
 
 ```
-(in console)
+(In the console)
  g++ -std=c++11 *.cpp -o cvp; ./cvp
 Enter a name for the file
 MyPalette
@@ -66,7 +66,7 @@ yellow
 orange
  
 
-(in newly created css file)
+(In the newly created css file)
 #c maroon {color: rgb(128, 0, 0);}
 #c dark green {color: rgb(0, 100, 0);}
 #c olive {color: rgb(140, 140, 0);}
@@ -79,11 +79,11 @@ orange
 
 ### Variables and Data Types
 
-I have used string and int variables. The string is used for the name of the newly created .css file. There are two integer values, one keeps track of the base color slected by the user, the other is attached to a random number generator.
+I have used string and two int variables. The string is used for the name of the newly created .css file. There are two integer values, one keeps track of the base color slected by the user, the other is attached to a random number generator.
 
 ### Console Input and Output
 
-The code propts the user for the name of a file, and creates a css file with that name. It then provides the user with a list of colors and asks the user to pick one as a base.
+The code propts the user for the name of a file, and creates a css file with that name. It then provides the user with a list of 21 preset colors and asks the user to pick one as a base.
 
 ### Decisions
 

@@ -8,6 +8,7 @@ using std::vector;
 
 class color{
   private:
+  
   public:
     //Varibales
     int r,g,b; // values for red, green and blue

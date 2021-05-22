@@ -22,7 +22,7 @@ int r = 0;
 color pink(255,128,128,"pink");
 color red(255,0,0,"red");
 color maroon (128,0,0,"maroon");
-color lightOrange (255,192,128,"lorange");
+color lightOrange (255,192,128,"light orange");
 color orange(255,128,0,"orange");
 color brown (128,64,0,"brown");
 color lightYellow(255,255,128,"light yellow");
@@ -77,7 +77,7 @@ int main()
 
   //asks the user to select a base color
   cout<<"Choose a base color:"<<endl<<"(enter the number next to it)"<<endl;
-  for(int i; i<colorsList.size();i++){
+  for(int i=0; i<colorsList.size();i++){
     cout<<(i+1)<<") "<<colorsList[i].identity()<<endl;
 
   //loops until a valid number is entered
